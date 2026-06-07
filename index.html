@@ -438,21 +438,40 @@
     border: 1px solid var(--border); padding: 24px;
     margin-top: 24px;
   }
-  .map-placeholder {
-    width: 100%; height: 200px;
-    background: linear-gradient(135deg, #e8f4f8 0%, #d4ecf7 100%);
-    border-radius: var(--radius-sm); margin-bottom: 20px;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 8px; color: #5B8FA8; font-size: 0.9rem;
-    border: 1px dashed #aacfe0; position: relative; overflow: hidden;
+  .map-embed {
+    width: 100%;
+    height: 220px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
   }
-  .map-placeholder::before {
-    content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='28' fill='none' stroke='%23aacfe0' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='18' fill='none' stroke='%23aacfe0' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='8' fill='none' stroke='%23aacfe0' stroke-width='1'/%3E%3C/svg%3E") center/200px repeat;
-    opacity: 0.4;
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
   }
-  .map-pin { font-size: 2.5rem; z-index: 1; }
-  .map-label { z-index: 1; font-weight: 500; font-size: 0.85rem; }
+  .map-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--pink);
+    text-decoration: none;
+    padding: 10px 18px;
+    background: white;
+    border: 1.5px solid var(--pink-light);
+    border-radius: var(--radius-pill);
+    transition: all 0.2s;
+  }
+  .map-directions:hover {
+    background: var(--pink-pale);
+    border-color: var(--pink);
+  }
 
   .location-detail { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
   .location-icon {
@@ -1056,10 +1075,18 @@
     <div class="section-label">✦ Find Us</div>
     <h2 class="section-title">Visit the <em>Studio</em></h2>
     <div class="location-card">
-      <div class="map-placeholder">
-        <div class="map-pin">📍</div>
-        <div class="map-label">Wakad, Pune</div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.697845678902!2d73.759876!3d18.599212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc70c882ee7439b%3A0x3b6b9f7e614e5c7!2sWakad%20Chowk%2C%20Wakad%2C%20Pune%2C%20Maharashtra%20411057!5e0!3m2!1sen!2sin!4v1717084800000!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Glow Beauty Studio — Wakad Chowk, Pune on Google Maps">
+        </iframe>
       </div>
+      <a class="map-directions" href="https://www.google.com/maps/dir/?api=1&destination=Wakad+Chowk,+Wakad,+Pune,+411057" target="_blank" rel="noopener noreferrer">
+        ↗ Get Directions
+      </a>
       <div class="location-detail">
         <div class="location-icon">📍</div>
         <div class="location-text"><strong>Address</strong>Glow Beauty Studio, Wakad, Pune — 411057</div>
@@ -1352,11 +1379,18 @@
     </div>
 
     <!-- Map -->
-    <div class="map-placeholder" style="height:220px; border-radius:var(--radius);">
-      <div class="map-pin">📍</div>
-      <div class="map-label" style="font-size:1rem; font-weight:600;">Glow Beauty Studio</div>
-      <div style="font-size:0.8rem; color:#5B8FA8; z-index:1;">Wakad, Pune — 411057</div>
+    <div class="map-embed" style="border-radius:var(--radius); height:260px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.697845678902!2d73.759876!3d18.599212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc70c882ee7439b%3A0x3b6b9f7e614e5c7!2sWakad%20Chowk%2C%20Wakad%2C%20Pune%2C%20Maharashtra%20411057!5e0!3m2!1sen!2sin!4v1717084800000!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Glow Beauty Studio — Wakad Chowk, Pune on Google Maps">
+      </iframe>
     </div>
+    <a class="map-directions" href="https://www.google.com/maps/dir/?api=1&destination=Wakad+Chowk,+Wakad,+Pune,+411057" target="_blank" rel="noopener noreferrer" style="margin-top:0;">
+      ↗ Get Directions in Google Maps
+    </a>
 
     <!-- Address block -->
     <div style="background:white; border-radius:var(--radius); border:1px solid var(--border); padding:22px; margin-top:16px;">
